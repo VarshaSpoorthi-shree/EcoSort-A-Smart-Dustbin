@@ -1,9 +1,7 @@
 #include <CheapStepper.h>
 #include <Servo.h>
 
-// -------------------------------------------------------------------
 // 1. PIN DEFINITIONS
-// -------------------------------------------------------------------
 
 // SENSORS
 #define ULTRASONIC_TRIG_PIN 4       // New pin for Ultrasonic Sensor Trigger
@@ -16,9 +14,7 @@
 #define SERVO_PIN 7                 // Servo motor for the main lid/door
 // Stepper Motor Pins (8, 9, 10, 11 are already defined by CheapStepper object)
 
-// -------------------------------------------------------------------
 // 2. CONSTANTS AND THRESHOLDS
-// -------------------------------------------------------------------
 
 // SERVO ANGLES (Degrees)
 const int LID_OPEN_ANGLE = 180;     // Angle to open the lid (e.g., fully vertical)
@@ -34,18 +30,15 @@ const int METALLIC_WASTE_ANGLE = 0; // Assuming metallic drops straight down at 
 const int MOISTURE_THRESHOLD = 20;  // Percentage: If moisture > 20%, classify as WET waste
 const int FULL_DISTANCE_CM = 15;    // Centimeters: Distance at which the bin is considered FULL
 
-// -------------------------------------------------------------------
 // 3. GLOBAL VARIABLES AND OBJECTS
-// -------------------------------------------------------------------
 
 Servo servo1;
 CheapStepper stepper(8, 9, 10, 11);
 
 int fsoil = 0; // Final calculated moisture percentage (0-100%)
 
-// -------------------------------------------------------------------
 // 4. HELPER FUNCTION: ULTRASONIC DISTANCE MEASUREMENT
-// -------------------------------------------------------------------
+
 long getDistance() {
   // Clears the ULTRASONIC_TRIG_PIN condition
   digitalWrite(ULTRASONIC_TRIG_PIN, LOW);
