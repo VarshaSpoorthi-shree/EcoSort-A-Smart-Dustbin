@@ -58,9 +58,8 @@ long getDistance() {
   return distance_cm;
 }
 
-// -------------------------------------------------------------------
 // 5. SETUP
-// -------------------------------------------------------------------
+
 void setup()
 {
   Serial.begin(9600);
@@ -80,9 +79,8 @@ void setup()
   Serial.println("System Initialized. Bin ready.");
 }
 
-// -------------------------------------------------------------------
 // 6. MAIN LOOP
-// -------------------------------------------------------------------
+
 void loop()
 {
   // --- A. FILL LEVEL MONITORING (Using Ultrasonic Sensor) ---
@@ -159,6 +157,5 @@ void loop()
     Serial.println("--- Cycle Complete, Ready for next disposal ---");
   }
 
-  // Small delay before next loop iteration to prevent sensor overlap
   delay(500);
 }
